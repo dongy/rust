@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # This script downloads and installs awscli from the packages mirrored in our
 # own S3 bucket. This follows the recommendations at:
 #

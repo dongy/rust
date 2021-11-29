@@ -142,7 +142,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: "${{ env.ARTIFACTS_AWS_ACCESS_KEY_ID }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets[format('AWS_SECRET_ACCESS_KEY_{0}', env.ARTIFACTS_AWS_ACCESS_KEY_ID)] }}"
-#        if: "success() && !env.SKIP_JOB && (github.event_name == 'push' || env.DEPLOY == '1' || env.DEPLOY_ALT == '1')"
+        if: "success() && !env.SKIP_JOB && (github.event_name == 'push' || env.DEPLOY == '1' || env.DEPLOY_ALT == '1')"
   auto:
     name: auto
     env:
