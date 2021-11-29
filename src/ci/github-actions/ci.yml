@@ -110,7 +110,7 @@ x--expand-yaml-anchors--remove:
         run: echo "[CI_PR_NUMBER=$num]"
         env:
           num: ${{ github.event.number }}
-        if: success() && !env.SKIP_JOB && github.event_name == 'pull_request'
+#        if: success() && !env.SKIP_JOB && github.event_name == 'pull_request'
 
       - name: add extra environment variables
         run: src/ci/scripts/setup-environment.sh
@@ -134,7 +134,7 @@ x--expand-yaml-anchors--remove:
         uses: rust-lang/simpleinfra/github-actions/cancel-outdated-builds@master
         with:
           github_token: "${{ secrets.github_token }}"
-        if: success() && !env.SKIP_JOB && github.ref != 'refs/heads/try'
+#        if: success() && !env.SKIP_JOB && github.ref != 'refs/heads/try'
         <<: *step
 
       - name: collect CPU statistics
