@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # Start the CI build. You shouldn't run this locally: call either src/ci/run.sh
 # or src/ci/docker/run.sh instead.
 

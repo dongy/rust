@@ -122,7 +122,7 @@ datecheck() {
   echo "== end clock drift check =="
 }
 datecheck
-trap datecheck EXIT
+# trap datecheck EXIT
 
 # We've had problems in the past of shell scripts leaking fds into the sccache
 # server (#48192) which causes Cargo to erroneously think that a build script
