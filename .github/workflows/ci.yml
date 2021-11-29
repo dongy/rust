@@ -81,7 +81,8 @@ jobs:
         uses: rust-lang/simpleinfra/github-actions/cancel-outdated-builds@master
         with:
           github_token: "${{ secrets.github_token }}"
-        if: "success() && !env.SKIP_JOB && github.ref != 'refs/heads/try'"
+        if: "success() && !env.SKIP_JOB
+#        && github.ref != 'refs/heads/try'"
       - name: collect CPU statistics
         run: src/ci/scripts/collect-cpu-stats.sh
         if: success() && !env.SKIP_JOB
