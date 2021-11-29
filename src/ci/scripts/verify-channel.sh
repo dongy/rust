@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # We want to make sure all PRs are targeting the right branch when they're
 # opened, otherwise we risk (for example) to land a beta-specific change to the
 # master branch. This script ensures the branch of the PR matches the channel.
