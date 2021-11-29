@@ -16,15 +16,15 @@
 ---
 name: CI
 "on":
-  push:
-    branches:
-      - auto
-      - try
-      - try-perf
-      - master
-  pull_request:
-    branches:
-      - "**"
+#  push:
+#    branches:
+#      - auto
+#      - try
+#      - try-perf
+#      - master
+#  pull_request:
+#    branches:
+#      - "**"
   workflow_dispatch:
 
 defaults:
