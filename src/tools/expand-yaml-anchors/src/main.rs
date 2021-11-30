@@ -34,7 +34,7 @@ static HEADER_MESSAGE: &str = "\
 ";
 
 enum Mode {
-    Check,
+    // Check,
     Generate,
 }
 
@@ -49,7 +49,7 @@ impl App {
         let args = std::env::args().skip(1).collect::<Vec<_>>();
         let (mode, base) = match args.iter().map(|s| s.as_str()).collect::<Vec<_>>().as_slice() {
             ["generate", ref base] => (Mode::Generate, PathBuf::from(base)),
-            ["check", ref base] => (Mode::Check, PathBuf::from(base)),
+            // ["check", ref base] => (Mode::Check, PathBuf::from(base)),
             _ => {
                 eprintln!("usage: expand-yaml-anchors <source-dir> <dest-dir>");
                 std::process::exit(1);
@@ -76,11 +76,11 @@ impl App {
                         self.path(&path),
                         self.path(&dest_path)
                     ),
-                    Mode::Check => format!(
-                        "{} is not up to date; please run \
-                        `x.py run src/tools/expand-yaml-anchors`.",
-                        self.path(&dest_path)
-                    ),
+                    //Mode::Check => format!(
+                    //    "{} is not up to date; please run \
+                    //    `x.py run src/tools/expand-yaml-anchors`.",
+                    //    self.path(&dest_path)
+                    //),
                 })?;
             }
         }
@@ -109,17 +109,17 @@ impl App {
         }
 
         match self.mode {
-            Mode::Check => {
-                let old = std::fs::read_to_string(dest)
-                    .with_context(|| format!("failed to read {}", self.path(dest)))?;
-                if old != buf {
-                    return Err(Box::new(StrError(format!(
-                        "{} and {} are different",
-                        self.path(source),
-                        self.path(dest),
-                    ))));
-                }
-            }
+            //Mode::Check => {
+            //    let old = std::fs::read_to_string(dest)
+            //        .with_context(|| format!("failed to read {}", self.path(dest)))?;
+            //    if old != buf {
+            //        return Err(Box::new(StrError(format!(
+            //            "{} and {} are different",
+            //            self.path(source),
+            //            self.path(dest),
+            //        ))));
+            //    }
+            // }
             Mode::Generate => {
                 std::fs::write(dest, buf.as_bytes())
                     .with_context(|| format!("failed to write to {}", self.path(dest)))?;
